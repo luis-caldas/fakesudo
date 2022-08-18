@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 USAGE="$0 {encrypt/decrypt} {cert/pem/key file} {input file} {output file}"
 

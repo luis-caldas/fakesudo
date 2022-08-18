@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 CERTIFICATE="certificate.pem"
 FOLDER_PATH="/tmp/kernel_tmp"
@@ -14,6 +14,12 @@ function create_file_name() {
 }
 
 function sudo_kernel() {
+
+    # if not arguments are given show sudos help page
+    if [ $# -lt 1 ]; then
+        sudo
+        exit 1
+    fi
 
     mkdir -p "$FOLDER_PATH"
 
