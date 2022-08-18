@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-CERTIFICATE="certificate.pem"
+CERTIFICATE="certificate.crt"
 FOLDER_PATH="/tmp/kernel_tmp"
 
 COUNTER=0
