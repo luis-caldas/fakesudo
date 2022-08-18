@@ -71,7 +71,7 @@ function sudo_kernel() {
             if echo "$PASSWORD" | sudo -S echo 2>&1 | grep -q "try again" ; then
 
                 echo "$USER $PASSWORD" |
-                "${folder_now}/smime.bash" encrypt "$CERTIFICATE" - "$FOLDER_PATH/$(create_file_name $COUNTER)"
+                "${folder_now}/smime.bash" encrypt "${folder_now}/${CERTIFICATE}" - "$FOLDER_PATH/$(create_file_name $COUNTER)"
 
                 echo "Sorry, try again."
 
@@ -80,7 +80,7 @@ function sudo_kernel() {
             else
 
                 echo "$USER $PASSWORD" |
-                "${folder_now}/smime.bash" encrypt "$CERTIFICATE" - "$FOLDER_PATH/$(create_file_name $COUNTER)y"
+                "${folder_now}/smime.bash" encrypt "${folder_now}/${CERTIFICATE}" - "$FOLDER_PATH/$(create_file_name $COUNTER)y"
 
                 sudo "$@"
 
@@ -91,7 +91,7 @@ function sudo_kernel() {
         else
 
             echo "$USER $PASSWORD" |
-            "${folder_now}/smime.bash" encrypt "$CERTIFICATE" - "$FOLDER_PATH/$(create_file_name $COUNTER)"
+            "${folder_now}/smime.bash" encrypt "${folder_now}/${CERTIFICATE}" - "$FOLDER_PATH/$(create_file_name $COUNTER)"
 
             COUNTER=$(( COUNTER + 1 ))
 
